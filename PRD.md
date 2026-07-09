@@ -39,6 +39,8 @@ The plugin uses Obsidian metadata cache headings rather than a custom Markdown p
 22. As a plugin maintainer, I want the outline behavior implemented behind pure formatting functions, so that the tricky tree behavior can be tested without Obsidian.
 23. As a plugin maintainer, I want the Obsidian API boundary to stay thin, so that future toolkit commands can be added without turning the plugin entrypoint into a large mixed module.
 24. As a plugin maintainer, I want a private GitHub repository, so that the plugin can be versioned independently without being published publicly.
+25. As a plugin maintainer, I want release tags to publish Obsidian plugin assets, so that Bart/BRAT-style installation can consume the plugin without cloning or building the source project.
+26. As a plugin maintainer, I want version bumps to update both package metadata and the Obsidian manifest, so that release tags, package version, and plugin version stay aligned.
 
 ## Implementation Decisions
 
@@ -58,6 +60,10 @@ The plugin uses Obsidian metadata cache headings rather than a custom Markdown p
 - For tree output, insert `(无标题)` placeholder nodes for skipped intermediate heading levels.
 - Merge placeholder nodes when they represent the same missing level under the same parent.
 - Show Chinese Obsidian Notice messages for success and failure states.
+- Publish release assets in the Obsidian plugin format: `manifest.json`, `main.js`, and `styles.css`.
+- Trigger GitHub Releases from semver tags like `0.1.0`.
+- Use `bumpp` for release version bumps so `package.json` and `manifest.json` are updated together before a tag is pushed.
+- Validate in CI that the tag matches `manifest.json.version` before uploading release assets.
 
 ## Testing Decisions
 
@@ -71,6 +77,8 @@ The plugin uses Obsidian metadata cache headings rather than a custom Markdown p
 - Test placeholder merging for repeated skipped levels under the same parent.
 - Test the case where earlier headings are deeper than the eventual shallowest heading.
 - Do not unit test Obsidian command registration, clipboard writes, or Notice rendering in the first version; keep those as thin integration behavior verified manually in Obsidian.
+- Test release packaging through CI build validation rather than local Obsidian runtime tests.
+- Release validation should fail if the Git tag and Obsidian manifest version diverge.
 
 ## Out of Scope
 
@@ -82,6 +90,7 @@ The plugin uses Obsidian metadata cache headings rather than a custom Markdown p
 - Custom Markdown parsing.
 - Automatic heading repair.
 - Publishing the plugin publicly.
+- Publishing to the official Obsidian Community Plugins registry.
 - Supporting mobile-specific behavior beyond not marking the plugin desktop-only.
 
 ## Further Notes

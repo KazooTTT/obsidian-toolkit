@@ -7,7 +7,11 @@
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
     "dev": "node esbuild.config.mjs",
     "test": "vitest run",
-    "deploy": "npm run build && node scripts/deploy.mjs"
+    "deploy": "npm run build && node scripts/deploy.mjs",
+    "release": "bumpp package.json manifest.json --commit \"chore(release): v%s\" --tag \"%s\" --push",
+    "release:patch": "bumpp package.json manifest.json --release patch --commit \"chore(release): v%s\" --tag \"%s\" --push",
+    "release:minor": "bumpp package.json manifest.json --release minor --commit \"chore(release): v%s\" --tag \"%s\" --push",
+    "release:major": "bumpp package.json manifest.json --release major --commit \"chore(release): v%s\" --tag \"%s\" --push"
   },
   "keywords": [
     "obsidian",
@@ -20,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^20.14.10",
     "builtin-modules": "^3.3.0",
+    "bumpp": "^11.1.0",
     "esbuild": "^0.21.5",
     "obsidian": "^1.6.7",
     "tslib": "^2.6.3",
