@@ -25,10 +25,10 @@
     "@types/node": "^20.14.10",
     "builtin-modules": "^3.3.0",
     "bumpp": "^11.1.0",
-    "esbuild": "^0.21.5",
+    "esbuild": "^0.28.1",
     "obsidian": "^1.6.7",
     "tslib": "^2.6.3",
     "typescript": "^5.5.3",
-    "vitest": "^2.0.5"
+    "vitest": "^4.1.10"
   }
 }
