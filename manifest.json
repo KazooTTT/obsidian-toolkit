@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-toolkit",
+  "name": "Obsidian Toolkit",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Personal Obsidian toolkit commands, starting with outline copy commands.",
+  "author": "KazooTTT",
+  "isDesktopOnly": false
+}
