@@ -3,7 +3,7 @@
 KazooTTT 的个人 Obsidian 命令合集插件。把各种零散的自用工作流命令收进一个插件，随时间慢慢加功能。
 
 - **插件 ID**：`obsidian-toolkit`
-- **仓库**：https://github.com/KazooTTT/obsidian-toolkit （私有）
+- **仓库**：https://github.com/KazooTTT/obsidian-toolkit
 - **本地源码**：`/Users/kazoottt/personal/obsidian-toolkit/`
 
 ## 功能
@@ -53,7 +53,9 @@ npm run deploy   # 构建并复制到 vault 的 .obsidian/plugins/obsidian-toolk
 
 ### BRAT
 
-仓库是私有的，BRAT 需要配置 GitHub Token 后添加 `KazooTTT/obsidian-toolkit`。
+1. 安装 [BRAT](https://github.com/TfTHacker/obsidian42-brat)
+2. 添加 Beta 插件：`KazooTTT/obsidian-toolkit`
+3. 在 Obsidian「设置 → 第三方插件」中启用 **Obsidian Toolkit**
 
 ## 开发
 
